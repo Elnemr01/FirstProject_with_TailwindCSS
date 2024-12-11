@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "tailwindcss": "^3.4.15"
+  },
+  "scripts": {
+    "build-leon" : "tailwindcss -i ./srcFiles/input.css -o ./leonProject/output.css --watch" 
+  }
+}

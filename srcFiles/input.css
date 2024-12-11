@@ -1,0 +1,364 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* global rules */
+
+:root {
+    --main-color: #10cab7;
+    --second-color: #2c4755;
+    --second-back-color: #f6f6f6;
+    --main-transition: .3s;
+}
+
+html {
+    @apply scroll-smooth transition-all duration-1000;
+}
+
+* {
+    @apply m-0 p-0;
+}
+
+body {
+    @apply box-border;
+}
+
+ul {
+    @apply list-none;
+}
+
+.container {
+    @apply px-[15px] w-full mx-auto;
+}
+
+@media (min-width: 767px) {
+    .container {
+        @apply w-[750px];
+    }
+}
+
+@media (min-width: 991px) {
+    .container {
+        @apply w-[970px];
+    }
+}
+
+@media (min-width: 1199px) {
+    .container {
+        @apply w-[1150px];
+    }
+}
+
+.main-heading {
+    @apply text-center my-[30px];
+}
+
+.main-heading h1 {
+    @apply text-[100px] font-extrabold text-[#ebeced] capitalize;
+}
+
+.main-heading p {
+    @apply mt-[-50px] text-[#79797977];
+}
+
+@media (max-width: 767px) {
+    .main-heading h1 {
+        @apply text-[65px] font-semibold;
+    }
+}
+
+@media (max-width: 767px) {
+    .main-heading p {
+        @apply mt-[-35px];
+    }
+}
+
+/* ---------- header rules ---------- */
+
+header .container {
+    @apply flex justify-between items-center min-h-[50px] bg-white; 
+}
+
+header .icon {
+    @apply max-w-[100px];
+}
+
+header img {
+    @apply max-w-full;
+}
+
+header .bars {
+    @apply flex flex-col justify-between items-end relative w-[30px] h-[20px] cursor-pointer;
+}
+
+header .bars:hover li.small {
+    width: 100%;
+}
+
+header .bars li {
+    @apply w-full h-[2px] bg-black;
+}
+
+header .bars li.small {
+    @apply w-[55%] duration-200;
+}
+
+header .bars .links {
+    @apply absolute bg-gray-200 top-full right-0 min-w-[150px] opacity-0 z-[-2] transition-all duration-200;
+}
+
+header .bars .links::before {
+    @apply content-[''] absolute w-0 h-0 border-[10px] border-transparent border-t-transparent border-r-transparent border-b-gray-200 border-l-transparent top-[-18px] right-[6px];
+}
+
+header .bars .links p {
+    @apply p-[10px] capitalize text-[17px] font-medium;
+}
+
+header .bars .links p:hover a {
+    @apply translate-x-[15px];
+}
+
+header .bars .links p:not(:last-child) {
+    @apply border-b-[1px] border-b-[#444];
+}
+
+header .bars .links a {
+    @apply inline-block transition-all duration-200 w-full;
+}
+
+/* ---------- landing rules ---------- */
+
+.landing {
+    @apply flex justify-center items-center min-h-screen bg-cover;
+    background-image: url("../images/landing.jpeg");
+}
+
+.landing .landing-content {
+    @apply text-center max-w-[265px];
+}
+
+.landing .landing-content h2 {
+    @apply text-[45px] font-bold capitalize text-mainColor;
+}
+
+.landing .landing-content p {
+    @apply text-base leading-7;
+}
+
+/* ---------- features rules ---------- */
+
+.features {
+    @apply pt-[40px];
+}
+
+.features .container {
+    @apply grid grid-cols-[repeat(auto-fill,_minmax(300px,_1fr))] gap-5;
+}
+
+.features .container .item {
+    @apply text-center p-[10px];
+}
+
+.features .container .item i {
+    @apply text-mainColor text-[55px];
+}
+
+.features .container .item h3 {
+    @apply text-xl font-bold capitalize my-2;
+}
+
+.features .container .item p {
+    @apply leading-6 text-gray-500;
+}
+
+/* ---------- services rules ---------- */
+
+.services {
+    @apply my-[25px];
+}
+
+.services .container {
+    @apply flex justify-between;
+}
+
+.services .container .image {
+    @apply relative max-w-[250px];
+}
+
+@media (max-width: 991px) {
+    .services .container .image {
+        @apply hidden;
+    }
+} 
+
+.services .container .image::before {
+    content: '';
+    @apply absolute top-[-50px] right-[-40px] w-[80px] h-[calc(100%+80px)] bg-[var(--second-color)] z-[-1];
+}
+
+.services .container .image img {
+    @apply max-w-full max-h-full ;
+}
+
+.services .container .items {
+    @apply grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-[25px];
+}
+
+.services .container .item {
+    @apply flex gap-[15px] p-[15px];
+
+}
+
+@media (max-width: 767px) {
+    .services .container .item {
+        @apply flex-col text-center;
+    }
+}
+
+.services .container .item .icon {
+    @apply pt-[8px];
+}
+
+.services .container .item .icon i {
+    @apply text-mainColor text-[30px];
+}
+
+.services .container .item .text h3 {
+    @apply text-[24px] font-bold capitalize;
+}
+
+.services .container .item .text p {
+    @apply text-[16px] leading-[1.8] text-[#444] mt-[10px];
+}
+
+    /* ---------- Portfolio rules ---------- */
+
+.portfolio {
+    @apply my-[25px];
+}
+
+.portfolio .container {
+    @apply grid gap-12 grid-cols-[repeat(auto-fill,minmax(300px,1fr))] mt-12;
+}
+
+.portfolio .image img {
+    @apply max-w-full;
+}
+.portfolio .container .info h2 {
+    @apply my-[15px] text-[21px] font-bold capitalize;
+}
+
+.portfolio .container .info p {
+    @apply leading-[1.7] text-[#777];
+}
+
+/* ---------- About rules ---------- */
+
+.about {
+    @apply my-[25px];
+}
+
+.about .container {
+    @apply flex justify-between gap-[100px] mt-[50px];
+}
+
+@media (max-width: 991px) {
+    .about .container {
+        @apply flex-col text-center gap-[50px];
+    }
+}
+
+.about .container .image {
+    @apply relative w-[400px];
+}
+
+@media (max-width: 991px) {
+    .about .container .image::before,
+    .about .container .image.image::after {
+        @apply hidden;
+    }
+
+    .about .container .image {
+        @apply mx-auto  w-[250px] h-[320px];
+    }
+}
+
+.about .container .image::before {
+    content: '';
+    @apply absolute top-[-30px] h-[calc(100%+60px)] w-[50px] left-[-15px] bg-[#ebeced];
+}
+
+.about .container .image img {
+    @apply max-w-full max-h-full;
+}
+
+.about .container .image::after {
+    content: '';
+    @apply absolute top-[-30px] h-[calc(100%+60px)] w-[200px] right-[-175px] bg-transparent border-b-[60px] border-l-[50px] border-[var(--main-color)] z-[-1];
+}
+
+.about .container .text {
+    @apply relative ;
+}
+
+.about .container .text p:first-child {
+    @apply leading-[1.7] text-[17px] font-extrabold;
+}
+
+.about .container hr {
+    @apply w-[60%] bg-[var(--main-color)] my-[25px] h-[2px];
+}
+
+@media (max-width: 991px) {
+    .about .container hr {
+        @apply mx-auto;
+    }
+}
+
+.about .container .text p:last-child {
+    @apply leading-[1.8] text-[#444];
+}
+
+/* ---------- contact rules ---------- */
+
+.contact {
+    @apply my-[25px];
+}
+
+.contact .container {
+    @apply text-center;
+}
+
+.contact p:first-child {
+    @apply text-[28px] font-extrabold text-secondColor;
+}
+
+.contact a {
+    @apply block text-mainColor text-[25px] font-bold my-[25px];
+}
+
+.contact p:last-child {
+    @apply flex justify-center items-center text-[15px] tracking-[3px];
+}
+
+.contact p:last-child i:first-child {
+    @apply ml-[5px];
+}
+
+.contact p:last-child i {
+    @apply text-secondColor;
+}
+
+/* ---------- footer rules ---------- */
+
+footer {
+    @apply h-[80px] bg-[var(--second-color)] text-white flex justify-center items-center text-[18px] font-sans;
+}
+
+footer span {
+    @apply text-[23px] mx-[7px] text-mainColor;
+}
